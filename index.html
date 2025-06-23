@@ -1,0 +1,84 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<div class="main-container">
+  <style>
+    body {
+      background-color: transparent;
+      font-family: 'Montserrat', sans-serif;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 9999;
+    }
+
+    .main-container {
+      pointer-events: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    input[type="checkbox"] {
+      appearance: checkbox;
+      -webkit-appearance: checkbox;
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      cursor: pointer;
+    }
+
+    label {
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+
+  <h2>☃️ Cozy Snow Forest Checklist ❄️</h2>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="item1">
+    <label for="item1">Коло для багаття з колодами</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="item2">
+    <label for="item2">Сарай з тваринами</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="item3">
+    <label for="item3">Підвісні ліхтарні стовпи вздовж засніжених стежок</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="item4">
+    <label for="item4">Теплиця для рослин</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="item5">
+    <label for="item5">Рибальський причал</label>
+  </div>
+
+  <script>
+    document.querySelectorAll("input[type='checkbox']").forEach(cb => {
+      const saved = localStorage.getItem(cb.id);
+      if (saved === "true") cb.checked = true;
+
+      cb.addEventListener("change", () => {
+        localStorage.setItem(cb.id, cb.checked);
+      });
+    });
+  </script>
+</div>
